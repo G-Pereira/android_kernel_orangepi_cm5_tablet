@@ -1,3 +1,25 @@
+# Android 17 kernel for the Orange Pi CM5 tablet
+
+This fork is based on [dvab-sarma/android_kernel_rk_opi](https://github.com/dvab-sarma/android_kernel_rk_opi),
+branch `android-17.0-6.18`. Its complete history and original RK3588/RK3588S
+vendor work are preserved. The first-parent base is
+`d18725321569af3a4945ccba8a3c216651cd34bb`.
+
+The common Android ACK base is updated to `android17-6.18.39_r00`. Shared
+ACK/build improvements are separate commits from CM5 PMIC, SD/eMMC, USB,
+HDMI, AP6256 Wi-Fi and Bluetooth wiring. The latter are separate include files
+so they can be reviewed and merged independently after base-board support.
+
+Use the companion [CM5 manifest](https://github.com/G-Pereira/android_manifest_orangepi_cm5_tablet)
+and [device configuration](https://github.com/G-Pereira/android_device_orangepi_cm5_tablet).
+The device build recipe merges `arch/arm64/configs/wiringop_debug.config` only
+for the development wiringOP profile. This is a custom board kernel, not a
+claim of GKI certification. See the device README for tested hardware and limits.
+
+Original Android Common Kernel contribution guidance follows.
+
+---
+
 # How do I submit patches to Android Common Kernels
 
 1. BEST: Make all of your changes to upstream Linux. If appropriate, backport to the stable releases.
